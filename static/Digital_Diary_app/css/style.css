@@ -1,0 +1,14 @@
+body{
+    /* background-color: rgb(75,74,74); */
+    background-image: url(https://miro.medium.com/max/10368/1*5o5s_QT6WsL-0X7RMhP3Ew.jpeg);
+    color:antiquewhite;
+}
+.form-control{
+    background-color: rgb(177, 161, 161);
+}
+.jumbo-color{
+    background-color: rgb(83,81,81);
+}
+.home_image{
+    background-image:url("https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.freemake.com%2Fblog%2Fwp-content%2Fuploads%2F2014%2F11%2Fdiarycom-e1459935896111.jpg&imgrefurl=https%3A%2F%2Fwww.freemake.com%2Fblog%2Ftop-5-free-websites-to-keep-diary-online%2F&tbnid=2ctrbO13Ie5_PM&vet=12ahUKEwjns-Sst_HvAhX4jUsFHewyCksQMyhFegQIARBj..i&docid=F4pSgovvoJpvfM&w=960&h=391&q=it%27s%20personal%20digital%20diary%20writing&ved=2ahUKEwjns-Sst_HvAhX4jUsFHewyCksQMyhFegQIARBj") ;
+}
