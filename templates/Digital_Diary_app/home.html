@@ -1,0 +1,40 @@
+{% extends 'Digital_Diary_app/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="col-sm-12" style="margin-top: -110px;">
+    <h2 class="text-black my-5"><center> HOME PAGE</center></h2>
+    <center>
+
+      <div class="jumbotron jumbotron-fluid jumbo-color" style="background-color: rgba(0, 0, 0, .04);">
+        <div class="container">
+          <h1 class="display-4 font-weight-bold">Digital Diary Writing Room</h1>
+          <p class="lead">We can do anything ..Not everything!!!.</p>
+          <p>Whether you’re looking for a tool to record your daily emotions and activities in a reflective journal, keep track of milestones in a food diary or pregnancy journal, or even record your dreams in a dream journal, We have you covered.</p>
+        </div>
+      </div>
+    </center>
+</div>
+<div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="max-width: 100%; height: 390px;">
+      <img src="https://store-images.microsoft.com/image/apps.5084.9007199266248466.6f498938-6c70-419e-89a3-b66638d36747.11b19413-ed7f-4761-85e6-4ec9b83f086d?w=672&h=378&q=80&mode=letterbox&background=%23FFE4E4E4&format=jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" style="max-width: 100%; height: 390px;">
+      <img src="https://technofaq.org/wp-content/uploads/2018/04/paper-vs-digital-diaries.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" style="max-width: 100%; height: 390px;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlM7M49NdroxjVaZin-6XVLPNNBEaRS59i2g&usqp=CAU" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock content %}
