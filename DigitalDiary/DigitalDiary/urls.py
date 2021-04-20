@@ -23,6 +23,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('search/', views.search, name='search'),
     path('user_logout/', views.user_logout, name='user_logout'),
     
     path('user_signup/', views.user_signup, name='user_signup'),
@@ -30,10 +31,11 @@ urlpatterns = [
     path('addpost/',views.addPost,name='addpost'),
     path('updatepost/<int:id>/',views.updatePost,name='updatepost'), # int id is used to make dynamic url
     path('delete/<int:id>/',views.deletePost,name='deletepost'),
+    path('search',views.search,name='search'),
     path('password_reset/', auth_views.PasswordResetView.as_view(),name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(),name = 'password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(),name = 'password_reset_confirm'),
     path('password_reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name = 'password_reset_complete.html'),name = 'password_reset_complete'),
-
+    
 
 ]
