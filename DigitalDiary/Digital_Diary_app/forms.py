@@ -25,4 +25,4 @@ class PostForm(forms.ModelForm):
         model = Post
         fields= ['title','desc']
         labels={'title':'Title','desc':'Description'}
-        widgets = {'title':forms.TextInput(attrs={'class':'form-control'}),'desc':forms.Textarea(attrs={'class':'form-control'}), }
+        widgets = {'title':forms.TextInput(attrs={'class':'form-control'}),'desc':forms.Textarea(attrs={'class':'form-control'}) }

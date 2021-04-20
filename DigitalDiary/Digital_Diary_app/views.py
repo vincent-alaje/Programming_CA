@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout 
 from .models import Post
 from django.contrib.auth.models import Group
+from django.contrib.auth.models import User
+# import datetime
+
   # django provide defaut form
 # for home page view
 def home(request):
@@ -24,9 +27,28 @@ def dashboard(request):
         full_name = user.get_full_name()
         gps=user.groups.all()
         return render(request,'Digital_Diary_app/dashboard.html',{'posts':posts , 'full_name':full_name , 'groups':gps})
+        
     else:
         return HttpResponseRedirect('/user_login/') #otherwise first user should be login after that user can access dashboard 
         # for logout page view
+def search(request):
+
+    query = request.GET['query']
+    posts=Post.objects.filter(title__icontains=query)
+    
+    params={'posts':posts}
+    return render(request,'Digital_Diary_app/search.html',params)
+   
+       
+    '''if request.user.is_authenticated: # if user is loggedin then the dashboard page will show 
+        if 'q' in request.GET:
+            q=request.GET['q']
+            posts=Post.objects.filter(title_icontains=q) #current user post
+            user=request.user
+            full_name = user.get_full_name()
+            gps=user.groups.all()
+            return render(request,'Digital_Diary_app/search.html',{'posts':posts , 'full_name':full_name , 'groups':gps})
+       '''
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
@@ -55,7 +77,7 @@ def user_login(request):
                 user= authenticate(username= uname,password=upass) #after successfully verification of username and password we get object as user
                 if user is not None:
                     login(request,user)
-                    messages.success(request,'Logged in succesfully !!!')
+                    
                     return HttpResponseRedirect('/dashboard/')
         else: # if data is t valid or matchd then it will return blank login form
             form=LoginForm()
@@ -64,6 +86,10 @@ def user_login(request):
     else: # means already logged in then it will return or how the dashboard to the user
         return HttpResponseRedirect('/dashboard/')
 
+
+
+
+    
 # to add new post
 def addPost(request):
     if request.user.is_authenticated:
@@ -72,10 +98,15 @@ def addPost(request):
             if form.is_valid():
                 title = form.cleaned_data['title']
                 desc=  form.cleaned_data['desc']
+                #date = form.cleaned_data['date']
+                #created_at=form.cleaned_data['created_at']
+                #updated_at=form.cleaned_data['updated_at']
                 pst = Post(title=title,desc=desc,user=request.user)
                 pst.save()
+                
                 return redirect('/dashboard/')
                 # form=PostForm()
+
         else:
             form=PostForm()
         return render(request,'Digital_Diary_app/addpost.html',{'form':form})
@@ -108,8 +139,10 @@ def deletePost(request,id):
 
 def carousel(request):
     return render(request,"carousel.html")
-
-
+'''
+def search(request):
+    return HttpResponseRedirect('This is search')
+'''
 class PasswordResetView(TemplateView):
     template_name = "password_reset.html"    
 
@@ -118,4 +151,4 @@ class PasswordResetDoneView(TemplateView):
 
 class PasswordResetConfirmView(TemplateView):
     template_name = "password_reset_confirm.html"
-    
+  
